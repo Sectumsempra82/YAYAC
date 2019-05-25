@@ -3,16 +3,16 @@ NOTES TO SELF
 /**********************************************************************************************************************************\
 
 TODOS:
-[ ]add es6 to express
-[ ]express basic routing
-[ ]create-react-app
-[ ]add database
-[ ]create basic api
-[ ]link frontend to api
-[ ]beutify frontend
-[ ]cleanup
-[ ]testing
-[ ]comments and final cleanup
+    [ ]add es6 to express
+    [ ]express basic routing
+    [ ]create-react-app
+    [ ]add database
+    [ ]create basic api
+    [ ]link frontend to api
+    [ ]beutify frontend
+    [ ]cleanup
+    [ ]testing
+    [ ]comments and final cleanup
 
 
 \**********************************************************************************************************************************/
