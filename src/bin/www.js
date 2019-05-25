@@ -8,7 +8,7 @@ import app from '../app';
 import debugLib from 'debug';
 import http from 'http';
 
-const debug = debugLib('your-project-name:server');
+const debug = debugLib('yayac:server');
 
 /**
  * Get port from environment and store in Express.
