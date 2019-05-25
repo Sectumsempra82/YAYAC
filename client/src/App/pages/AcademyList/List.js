@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Academies from './Academies/Academies';
+import classes from './List.module.css'
 
 class List extends Component {
   // Initialize the state
@@ -25,20 +27,11 @@ class List extends Component {
     const { list } = this.state;
 
     return (
-      <div className="App">
+      <div className={classes.List}>
         <h1>List of Yoda Academies</h1>
         {/* Check to see if any items are found*/}
         {list.length ? (
-          <div>
-            {/* Render the list of items */}
-            {list.map((item) => {
-              return(
-                <div>
-                  {item}
-                </div>
-              );
-            })}
-          </div>
+          <Academies list={list} />
         ) : (
           <div>
             <h2>No Yoda Academies Found</h2>
