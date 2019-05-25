@@ -14,6 +14,19 @@ app.get('/api/getList', (req,res) => {
 });
 
 // Routes everything else to our React app
+var env = process.argv[2] || 'dev';
+switch (env) {
+    case 'dev':
+        app.get('*', (req,res) =>{
+            res.redirect('http://localhost:3000');
+        });
+        break;
+    case 'prod':
+        app.get('*', (req,res) =>{
+            res.sendFile(path.join(__dirname+'/client/build/index.html'));
+        });
+        break;
+}
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
