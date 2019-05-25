@@ -17,8 +17,10 @@ app.get('/api/getList', (req,res) => {
 var env = process.argv[2] || 'dev';
 switch (env) {
     case 'dev':
+        
         app.get('*', (req,res) =>{
-            res.redirect('http://localhost:3000');
+            var fullUrl = req.protocol + '://localhost:3000'+ req.originalUrl;
+            res.redirect(fullUrl);
         });
         break;
     case 'prod':
@@ -27,9 +29,6 @@ switch (env) {
         });
         break;
 }
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
 
 const port = process.env.PORT || 5000;
 app.listen(port);
