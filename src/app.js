@@ -13,7 +13,7 @@ app.get('/api/getList', (req,res) => {
     console.log('Sent list of yoda academies');
 });
 
-// Routes everything else to our React app
+// Routes everything else to our React app, taking in consideration the kind of environment we want to run
 var env = process.argv[2] || 'dev';
 switch (env) {
     case 'dev':

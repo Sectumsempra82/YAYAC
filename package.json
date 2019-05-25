@@ -11,7 +11,7 @@
     "build": "babel ./src --out-dir dist",
     "prod": "SET NODE_ENV=production && npm-run-all clean build && npm-run-all --parallel server:prod client:prod",
     "watch": "nodemon",
-    "client:prod": "cd ./client && npm start",
+    "client:prod": "cd ./client && react-scripts build",
     "client": "cd ./client && npm start"
   },
   "dependencies": {
