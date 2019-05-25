@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "npm run prod",
-    "server": "babel-node ./src/bin/www",
-    "server:prod": "node ./dist/bin/www",
-    "dev": "SET NODE_ENV=development && npm-run-all server",
+    "server": "babel-node ./src/app",
+    "server:prod": "node ./dist/app",
+    "dev": "SET NODE_ENV=development && npm-run-all --parallel server client",
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
-    "prod": "SET NODE_ENV=production && npm-run-all clean build server:prod",
-    "watch": "nodemon"
+    "prod": "SET NODE_ENV=production && npm-run-all clean build && npm-run-all --parallel server:prod client:prod",
+    "watch": "nodemon",
+    "client:prod": "cd ./client && npm start",
+    "client": "cd ./client && npm start"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",
@@ -25,6 +27,7 @@
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "react-scripts": "^3.0.1"
   }
 }
