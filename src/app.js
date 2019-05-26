@@ -12,11 +12,9 @@ const appRepo = new YayacRepository(dao);
 app.use(express.static(path.join(__dirname, '/../client/build')));
 
 // An api endpoint that returns a list of academies
-app.get('/api/getList', async (req, res) => {
-    // var list = ["academy1", "academy2", "academy3"];
-    const list = await appRepo.getAll();
-    res.json(list);
-
+app.get('/api/getList', (req, res) => {
+    appRepo.getAll()
+        .then(list => res.json(list) );
 });
 
 // Routes everything else to our React app, taking in consideration the kind of environment we want to run

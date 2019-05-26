@@ -7,7 +7,7 @@ TODOS:
     [x]add es6 to express
     [x]express basic routing
     [x]create-react-app
-    [ ]add database
+    [x]add database
     [x]create basic api
     [x]link frontend to api
     [ ]beutify frontend
