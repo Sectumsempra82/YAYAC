@@ -46,13 +46,13 @@ class YayacRepository {
             name,
             description,
             grades.grade AS grade,
-                (SELECT tag_id FROM 
-                        (SELECT agency_id, GROUP_CONCAT(
-                                (SELECT tag FROM tags WHERE agency_id = tags.id), ' ')
-                         as tag_id FROM  agencies_to_tags GROUP BY agency_id) AS taglist
-                WHERE taglist.agency_id = agencies.id) tag
-            FROM agencies
-            LEFT JOIN grades ON grades.id = agencies.grade`;
+            (SELECT tag_id FROM 
+                (SELECT agency_id, GROUP_CONCAT(
+                    (SELECT tag FROM tags WHERE agencies_to_tags.tag_id = tags.id), ' ')
+                as tag_id FROM  agencies_to_tags GROUP BY agency_id)
+            AS taglist WHERE taglist.agency_id = agencies.id) tag
+        FROM agencies
+        LEFT JOIN grades ON grades.id = agencies.grade`;
 
 
         return this.dao.run(createGradesTable)
