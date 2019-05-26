@@ -7,7 +7,7 @@ const Academies = ( props ) => {
             {/* Render the list of academies */}
             {props.list.map((item) => {
               return(
-                <div>
+                <div key={item.name}>
                   {item.name} {item.description} {item.grade} {item.tag}
                 </div>
               );

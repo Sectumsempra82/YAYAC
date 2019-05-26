@@ -28,7 +28,13 @@ export const addAcademy = (body) => {
             .then((mess) => {
                 if (res.status >= 400){
                     alert(mess)
-                };
+                }else{
+                    if (res.status === 200) {
+                        alert("Academy correctly created");
+                        window.location.reload();
+                    }
+                }
+                ;
                 return  mess})})
             
         .catch(err => alert(err))
