@@ -2,27 +2,14 @@ import React, { Component } from 'react';
 import Academies from './Academies/Academies';
 import classes from './List.module.css';
 import {connect} from 'react-redux';
+import * as actionCreators from '../../store/actions';
 
 class List extends Component {
-  // // Initialize the state
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     list: []
-  //   }
-  // }
 
   // Fetch the list on first mount
   componentDidMount() {
     this.props.onListInit();
   }
-
-  // // Retrieves the list of items from the Express app
-  // getList = () => {
-  //   fetch('/api/getList')
-  //   .then(res => res.json())
-  //   .then(list => this.setState({ list }))
-  // }
 
   render() {
     return (
@@ -50,7 +37,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToPorps = dispatch => {
   return {
-    onListInit: () => dispatch({type: 'GETLIST'})
+    onListInit: () => dispatch(actionCreators.getList())
   }
 }
 

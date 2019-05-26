@@ -1,15 +1,22 @@
+import * as actionTypes from './actions';
 const initialState = {
     list: []
 }
 
 const reducer = (state = initialState, action) => {
-    if (action.type === 'GETLIST') {
-        return {
-            list: ['a1','b1', 'c1']
-        }
+    switch (action.type) {
+        case actionTypes.UPDATELIST:
+                return {
+                    ...state,
+                    list: action.list
+                }
+        default:
+            return {
+                ...state
+            }
     }
     
-    return state;
+
 }
 
 export default reducer;
