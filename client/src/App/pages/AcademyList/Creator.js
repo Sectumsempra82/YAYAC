@@ -3,12 +3,11 @@ import NewAcademy from './Academies/NewAcademy';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actions';
 
-
 class Creator extends Component {
 
     render(){
         return(
-            <NewAcademy create={this.props.onFormSubmit}/>
+                <NewAcademy create={this.props.onFormSubmit}/>
         )
     }
 

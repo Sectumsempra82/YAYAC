@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import classes from './NewAcademy.module.css';
+import { Link } from 'react-router-dom';
 
 class NewAcademy extends Component {
 
@@ -66,6 +67,11 @@ class NewAcademy extends Component {
                         Submit
                 </Button>
                 </Form>
+                <Link to={'/Academies/List'}>
+                    <button variant="raised">
+                         Yoda Academies List
+                    </button>
+                 </Link>
             </div>
         )
     }
