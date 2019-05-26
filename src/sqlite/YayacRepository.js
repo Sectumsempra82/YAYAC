@@ -56,11 +56,11 @@ class YayacRepository {
 
 
         return this.dao.run(createGradesTable)
-            .then(() => this.dao.run(createDefaultGrades))
-            .then(() => this.dao.run(createTagsTable))
-            .then(() => this.dao.run(createAgenciesTable))
-            .then(() => this.dao.run(createAgenciesToTagsTable))
-            .then(() => this.dao.run(createTableView))
+            .then(() => this.dao.run(createDefaultGrades)
+            .then(() => this.dao.run(createTagsTable)
+            .then(() => this.dao.run(createAgenciesTable)
+            .then(() => this.dao.run(createAgenciesToTagsTable)
+            .then(() => this.dao.run(createTableView))))))
             .catch((err) => {
                 console.log('Error: ')
                 console.log(JSON.stringify(err))

@@ -20,7 +20,7 @@ class AppDAO {
                     console.log(err)
                     reject(err)
                 } else {
-                    resolve(result)
+                    resolve({ id: this.lastID })
                 }
             })
         })
@@ -49,7 +49,6 @@ class AppDAO {
               reject(err)
             } else {
               resolve(rows);
-              console.log('Sent list of yoda academies: \n', rows);
             }
           })
         })

@@ -1,12 +1,26 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import AppDAO from './sqlite/Dao';
 import YayacRepository from './sqlite/YayacRepository';
 
 const app = express();
-
+let initScripts = false
+try {
+    if (fs.existsSync('./src/sqlite/appDb.db')) {
+      initScripts = true
+    }
+  } catch(err) {
+    console.error(err)
+  }
 const dao = new AppDAO('./src/sqlite/appDb.db');
+
 const appRepo = new YayacRepository(dao);
+
+if (initScripts) {
+    appRepo.createTables()
+        .then(() => {})
+}
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '/../client/build')));
