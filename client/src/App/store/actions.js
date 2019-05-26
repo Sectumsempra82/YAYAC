@@ -23,7 +23,14 @@ export const addAcademy = (body) => {
             body:    JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' },
         })
-        .then(res => { return res.json()})
+        .then(res => {
+            res.json()
+            .then((mess) => {
+                if (res.status >= 400){
+                    alert(mess)
+                };
+                return  mess})})
+            
         .catch(err => alert(err))
     }
 }

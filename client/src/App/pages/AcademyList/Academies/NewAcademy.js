@@ -22,6 +22,7 @@ class NewAcademy extends Component {
                 });
             this.props.create([Name, Description, Grade, Tags])
 
+
         }
 
         

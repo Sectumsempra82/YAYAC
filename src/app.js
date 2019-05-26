@@ -43,7 +43,7 @@ app.get('/api/getList', (req, res) => {
 app.post('/api/addAcademy', (req, res) => {
     appRepo.addAcademy(req.body)
     .then(() => res.status(200).send(JSON.stringify('Copy that')))
-    .catch(err => res.status(409).send(JSON.stringify("Error:" + err )));
+    .catch(err => res.status(409).send(JSON.stringify(err.toString() )));
 });
 
 // Routes everything else to our React app, taking in consideration the kind of environment we want to run
