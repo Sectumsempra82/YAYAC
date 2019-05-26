@@ -4,12 +4,12 @@ NOTES TO SELF
 
 TODOS:
 
-    [ ]add es6 to express
-    [ ]express basic routing
-    [ ]create-react-app
+    [x]add es6 to express
+    [x]express basic routing
+    [x]create-react-app
     [ ]add database
-    [ ]create basic api
-    [ ]link frontend to api
+    [x]create basic api
+    [x]link frontend to api
     [ ]beutify frontend
     [ ]cleanup
     [ ]testing
