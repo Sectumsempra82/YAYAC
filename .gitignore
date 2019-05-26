@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+#sqlite instance
+/src/sqlite/appDb.db
+
 # testing
 /coverage
 
