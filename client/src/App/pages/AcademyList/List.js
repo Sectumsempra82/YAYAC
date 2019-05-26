@@ -16,7 +16,7 @@ class List extends Component {
       <div className={classes.List}>
         <h1>List of Yoda Academies</h1>
         {/* Check to see if any items are found*/}
-        {this.props.list ? (
+        {this.props.list && this.props.list.length ? (
           <Academies list={this.props.list} />
         ) : (
           <div>
