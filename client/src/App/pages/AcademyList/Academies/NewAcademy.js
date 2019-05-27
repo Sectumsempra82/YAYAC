@@ -69,6 +69,7 @@ class NewAcademy extends Component {
                         Submit
                 </Button>
                 </Form>
+                {/* Link to List.js */}
                 <Link to={'/Academies/List'}>
                     <button variant="raised">
                          Yoda Academies List

@@ -23,6 +23,7 @@ class List extends Component {
           </button>
         </Link>
         <Link to={'/'}>
+          {/* Link to Home.js */}
           <button variant="raised">
             Home
           </button>
