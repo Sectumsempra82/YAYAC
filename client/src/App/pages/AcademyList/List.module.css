@@ -1,3 +1,9 @@
 .List {
     text-align: center;
+    margin-top: 20vh;
+
+}
+
+.List > h1 {
+    margin-bottom: 20px;
 }

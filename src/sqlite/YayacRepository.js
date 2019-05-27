@@ -58,7 +58,7 @@ class YayacRepository {
         const createAgenciesTable = `
         CREATE TABLE IF NOT EXISTS agencies (
           id INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT,
-          name TEXT UNIQUE,
+          name TEXT UNIQUE NOT NULL,
           description TEXT,
           grade INT,
           CONSTRAINT agencies_fk_grade FOREIGN KEY (grade)
@@ -88,7 +88,7 @@ class YayacRepository {
             grades.grade AS grade,
             (SELECT tag_id FROM 
                 (SELECT agency_id, GROUP_CONCAT(
-                    (SELECT tag FROM tags WHERE agencies_to_tags.tag_id = tags.id), ' ')
+                    (SELECT tag FROM tags WHERE agencies_to_tags.tag_id = tags.id), ', ')
                 as tag_id FROM  agencies_to_tags GROUP BY agency_id)
             AS taglist WHERE taglist.agency_id = agencies.id) tag
         FROM agencies
@@ -125,21 +125,12 @@ class YayacRepository {
                 [values[0]]
             ))
             .then((res) => {
-                if (values[3].length > 1){
                     values[3].forEach((val) => {
                         this.dao.run(
                             `INSERT INTO agencies_to_tags (agency_id, tag_id)
                                 VALUES (?, ?)`,
                             [res.id, val])
                     })
-                } else { 
-                    if (values[3].length === 1){
-                        this.dao.run(
-                            `INSERT INTO agencies_to_tags (agency_id, tag_id)
-                                VALUES (?, ?)`,
-                            [res.id, values[3]])
-                    }
-                }
             })
             .catch(err => console.log(err));
         })
