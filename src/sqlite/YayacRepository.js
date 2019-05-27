@@ -125,14 +125,22 @@ class YayacRepository {
                 [values[0]]
             ))
             .then((res) => {
-                console.log(res, values, values[3])
-                values[3].forEach((val) => {
-                    this.dao.run(
-                        `INSERT INTO agencies_to_tags (agency_id, tag_id)
-                            VALUES (?, ?)`,
-                        [res.id, val])
+                if (values[3].length > 1){
+                    values[3].forEach((val) => {
+                        this.dao.run(
+                            `INSERT INTO agencies_to_tags (agency_id, tag_id)
+                                VALUES (?, ?)`,
+                            [res.id, val])
+                    })
+                } else { 
+                    if (values[3].length === 1){
+                        this.dao.run(
+                            `INSERT INTO agencies_to_tags (agency_id, tag_id)
+                                VALUES (?, ?)`,
+                            [res.id, values[3]])
+                    }
                 }
-            )})
+            })
             .catch(err => console.log(err));
         })
         .catch(err => {console.log(err); throw err });

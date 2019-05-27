@@ -45,14 +45,14 @@ class List extends Component {
 const mapStateToProps = state => {
   return {
     list: state.list
-  };
-};
+  }
+}
 
-const mapDispatchToPorps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
-    onListInit: () => dispatch(actionCreators.getList())
+    onListInit: actionCreators.getList(dispatch)
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToPorps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(List);

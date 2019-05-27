@@ -16,7 +16,7 @@ class Creator extends Component {
 
 const mapDispatchToPorps = dispatch => {
     return {
-      onFormSubmit: (params) => dispatch(actionCreators.addAcademy(params))
+      onFormSubmit: params => actionCreators.addAcademy(dispatch, params)
     }
 }
 

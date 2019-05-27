@@ -39,7 +39,7 @@ app.get('/api/getList', (req, res) => {
         .catch(err => console.log(err));;
 });
 
-
+//An api endpoint that creates a new academy
 app.post('/api/addAcademy', (req, res) => {
     appRepo.addAcademy(req.body)
     .then(() => res.status(200).send(JSON.stringify('Copy that')))
