@@ -21,9 +21,11 @@ class NewAcademy extends Component {
                 .map(el => {
                     return el.value;
                 });
-            this.props.create([Name, Description, Grade, Tags])
-
-
+            if (Name ===  '' || Description === ''){
+                alert('Empty fields are not allowed! Make sure you filled in both Name and Description for the new academy and try again.')
+            }else{
+                this.props.create([Name, Description, Grade, Tags])
+            }
         }
 
         

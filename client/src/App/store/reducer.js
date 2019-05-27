@@ -12,9 +12,8 @@ const reducer = (state = initialState, action) => {
                     list: action.list
                 }
         default:
-            return {
-                ...state
-            }
+            //returning state instead of {...state} to avoid re-rendering
+            return state
     }
     
 

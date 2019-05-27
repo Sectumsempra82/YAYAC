@@ -9,7 +9,9 @@ export const updateList = newList => {
 };
 
 export const getList = () => {
-    return dispatch => {
+    //added fetch as arg to allow easier testing
+    // eslint-disable-next-line no-use-before-define
+    return (dispatch, fetch=fetch) => {
         fetch('/api/getList')
             .then(res => res.json())
             .then(list => dispatch(updateList(list)))
@@ -17,7 +19,9 @@ export const getList = () => {
 }
 
 export const addAcademy = (body) => {
-    return dispatch => {
+    //added fetch as arg to allow easier testing
+    // eslint-disable-next-line no-use-before-define
+    return (dispatch, fetch=fetch) => {
         fetch('/api/addAcademy', {
             method: 'post',
             body:    JSON.stringify(body),
