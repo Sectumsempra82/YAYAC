@@ -2,7 +2,7 @@ import React, {Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import classes from './NewAcademy.module.css';
 import { Link } from 'react-router-dom';
-
+import Creator from './Creator';
 class NewAcademy extends Component {
 
 
@@ -10,7 +10,7 @@ class NewAcademy extends Component {
     render() {
         
 
-        const handleSubmit = (event) => {
+        const handleSubmit = (event, onFormSubmit) => {
             event.preventDefault();
             event.stopPropagation();
 
@@ -24,7 +24,7 @@ class NewAcademy extends Component {
             if (Name ===  '' || Description === ''){
                 alert('Empty fields are not allowed! Make sure you filled in both Name and Description for the new academy and try again.')
             }else{
-                this.props.create([Name, Description, Grade, Tags])
+                onFormSubmit([Name, Description, Grade, Tags])
             }
         }
 
@@ -32,7 +32,9 @@ class NewAcademy extends Component {
 
         return (
             <div className={classes.NewAcademy}>
-                <Form onSubmit={e => handleSubmit(e)}>
+                <Creator 
+                render={({onFormSubmit}) => (
+                <Form onSubmit={e => handleSubmit(e, onFormSubmit)}>
                     <Form.Group>
                         <Form.Label>Academy Name</Form.Label>
                         <Form.Control type="text" placeholder="Academy Name" ref={ref => this.academyName = ref} />
@@ -69,6 +71,7 @@ class NewAcademy extends Component {
                         Submit
                 </Button>
                 </Form>
+                )}/>
                 {/* Link to List.js */}
                 <Link to={'/Academies/List'}>
                     <button variant="raised">

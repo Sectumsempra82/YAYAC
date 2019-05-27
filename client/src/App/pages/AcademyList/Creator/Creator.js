@@ -1,16 +1,15 @@
-import React, {Component} from 'react';
-import NewAcademy from './Academies/NewAcademy';
+import {Component} from 'react';
+
 import {connect} from 'react-redux';
-import * as actionCreators from '../../store/actions';
+import * as actionCreators from '../../../store/actions';
 
 class Creator extends Component {
 
     render(){
-        return(
-                <NewAcademy create={this.props.onFormSubmit}/>
-        )
+        return this.props.render({
+            onFormSubmit: this.props.onFormSubmit
+        })
     }
-
 };
 
 
