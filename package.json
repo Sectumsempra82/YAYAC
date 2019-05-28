@@ -4,25 +4,24 @@
   "private": true,
   "scripts": {
     "start": "npm run prod",
-    "server": "babel-node ./src/app",
-    "server:prod": "node ./dist/app",
+    "server": "babel-node ./src/server",
+    "server:prod": "node ./dist/server",
     "dev": "SET NODE_ENV=development && npm-run-all --parallel server client",
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
     "prod": "SET NODE_ENV=production && npm-run-all clean build && npm-run-all --parallel server:prod client:prod",
     "watch": "nodemon",
     "client:prod": "cd ./client && react-scripts build",
-    "client": "cd ./client && npm start"
+    "client": "cd ./client && npm start",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "bootstrap": "^4.3.1",
     "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
     "express": "^4.16.4",
     "morgan": "~1.9.1",
     "npm-run-all": "^4.1.5",
-    "react-bootstrap": "^1.0.0-beta.8",
     "rimraf": "^2.6.3",
     "sqlite3": "^4.0.8"
   },
@@ -34,6 +33,8 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "nodemon": "^1.19.0",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "superagent": "^5.0.5",
+    "supertest": "^4.0.2"
   }
 }
